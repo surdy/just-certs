@@ -23,7 +23,7 @@ gen-ca-cert:
   -newkey rsa:4096 -sha256 \
   -days 3650 \
   -out generated/cacerts.pem \
-  -config config/root-ca.cnf
+  -config config/root-ca.cnf -quiet
 
 # Check cert
 _check-cert file:

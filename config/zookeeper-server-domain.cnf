@@ -29,7 +29,3 @@ subjectAltName = @alt_names
 DNS.1 = zookeeper
 DNS.2 = zookeeper.confluent.svc.cluster.local
 DNS.3 = *.zookeeper.confluent.svc.cluster.local
-DNS.4 = zookeeper.source.svc.cluster.local
-DNS.5 = *.zookeeper.source.svc.cluster.local
-DNS.6 = zookeeper.destination.svc.cluster.local
-DNS.7 = *.zookeeper.destination.svc.cluster.local
