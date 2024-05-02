@@ -7,14 +7,6 @@ default:
 # Check CA certificate
 check-ca-cert: (_check-cert "generated/cacerts.pem")
 
-# Generate CA certificate
-gen-ca-cert: _gen-ca-key
-  openssl req -x509 -new -nodes \
-  -key generated/rootCAkey.pem \
-  -days 3650 \
-  -out generated/cacerts.pem \
-  -subj "/C=US/ST=CA/L=MVT/O=TestOrg/OU=Cloud/CN=TestCA"
-
 # Generate Zookeeper Certificate
 gen-zk-cert: (_gen-cert "zookeeper-server")
 

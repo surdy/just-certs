@@ -16,10 +16,14 @@ _gen-cert component:
   config/{{ component }}-domain.cnf \
   -extensions v3_req
 
-# Generate SSL Key
-_gen-ca-key:
+# Generate CA certificate
+gen-ca-cert:
   @mkdir -p generated
-  openssl genrsa -out generated/rootCAkey.pem 2048
+  openssl req -x509 -new -nodes \
+  -newkey rsa:4096 -sha256 \
+  -days 3650 \
+  -out generated/cacerts.pem \
+  -config config/root-ca.cnf
 
 # Check cert
 _check-cert file:
