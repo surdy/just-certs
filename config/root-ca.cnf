@@ -14,7 +14,7 @@ organizationName 		= supplied
 
 [ req ]
 prompt                  = no
-default_bits 			= 4096
+default_bits 			= 2048
 default_keyfile 		= generated/rootCAkey.pem
 distinguished_name 		= ca_distinguished_name
 x509_extensions 		= ca_extensions

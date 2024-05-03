@@ -20,7 +20,7 @@ _gen-cert component:
 gen-ca-cert:
   @mkdir -p generated
   openssl req -x509 -new -nodes \
-  -newkey rsa:4096 -sha256 \
+  -newkey rsa -sha256 \
   -days 3650 \
   -out generated/cacerts.pem \
   -config config/root-ca.cnf -quiet
