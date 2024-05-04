@@ -5,7 +5,7 @@ _gen-cert component:
   @# generate {{ component }} csr
   openssl req -new -key generated/{{ component }}-key.pem \
   -out generated/{{ component }}.csr \
-  -config config/{{ component }}-domain.cnf \
+  -config config/{{ component }}.cnf \
   -extensions v3_req
 
   @# generate {{ component }} server cert
@@ -13,7 +13,7 @@ _gen-cert component:
   -CA generated/cacerts.pem -CAkey generated/rootCAkey.pem \
   -out generated/{{ component }}.pem \
   -days 1825 -sha256 -extfile \
-  config/{{ component }}-domain.cnf \
+  config/{{ component }}.cnf \
   -extensions v3_req
 
 # Generate CA certificate
