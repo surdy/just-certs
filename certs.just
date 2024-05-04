@@ -1,12 +1,9 @@
 _gen-cert component:
-  @# generate {{ component }} CSR key
-  openssl genrsa -out generated/{{ component }}-key.pem 2048
-
-  @# generate {{ component }} csr
-  openssl req -new -key generated/{{ component }}-key.pem \
+  @# generate {{ component }} key and csr
+  openssl req -newkey rsa -sha256 -nodes \
   -out generated/{{ component }}.csr \
   -config config/{{ component }}.cnf \
-  -extensions v3_req
+  -extensions v3_req -quiet
 
   @# generate {{ component }} server cert
   openssl x509 -req -in generated/{{ component }}.csr \

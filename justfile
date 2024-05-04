@@ -40,5 +40,5 @@ create-secrets:
 
 # Delete Kafka and ZK CRs
 delete-crs:
-  kubectl delete kafka kafka
-  kubectl delete zk zookeeper 
+  kubectl delete kafka --ignore-not-found=true kafka
+  kubectl delete zk --ignore-not-found=true zookeeper
