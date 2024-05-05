@@ -1,17 +1,19 @@
 import 'certs.just'
 
+default := 'no'
+
 # List available commands 
-default:
-  @just --list --unsorted
+list:
+  @just --list
 
 # Check CA certificate
 check-ca-cert: (_check-cert "generated/cacerts.pem")
 
 # Generate Zookeeper Certificate
-gen-zk-cert: (_gen-cert "zookeeper-server")
+gen-zk-cert encrypt_key=default: (_gen-cert "zookeeper-server" encrypt_key)
 
 # Generate Kafka Certificate
-gen-kafka-cert: (_gen-cert "kafka-server")
+gen-kafka-cert encrypt_key=default: (_gen-cert "kafka-server" encrypt_key)
 
 # Check Zookeeper certificate
 check-zk-cert: (_check-cert "generated/zookeeper-server.pem")

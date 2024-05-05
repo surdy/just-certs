@@ -1,6 +1,7 @@
-_gen-cert component:
+_gen-cert component encrypt_key:
   @# generate {{ component }} key and csr
-  openssl req -newkey rsa -sha256 -nodes \
+  openssl req -newkey rsa -sha256 \
+  {{ if encrypt_key == "encrypt-key" { "" } else { "-nodes" } }} \
   -out generated/{{ component }}.csr \
   -config config/{{ component }}.cnf \
   -extensions v3_req -quiet
